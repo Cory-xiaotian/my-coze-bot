@@ -28,27 +28,44 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       overflow: hidden;
     }
+    .error-tip {
+      color: #ff4d4f;
+      text-align: center;
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
   <div id="coze-chat"></div>
+  <div id="error-tip" class="error-tip" style="display: none;">加载失败，请检查网络或刷新重试</div>
 
-  <!-- 引入扣子 Web SDK -->
-  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.1.0-beta.0/libs/cn/index.js"></script>
+  <script src="https://lf3-static.bytednsdoc.com/obj/eden-cn/nuvjhpqnuvr/chat-app-sdk/1.1.0-beta.0/libs/cn/index.js"></script>
 
   <script>
-    const cozeWebSDK = new CozeWebSDK.WebChatClient({
-      config: {
-        bot_id: '7632550836039630890',
-        isIframe: false
-      },
-      auth: {
-        type: 'unauth'
-      },
-      ui: {
-        title: '我的智能助手',
-        placement: 'container',
-        container: '#coze-chat'
+    window.addEventListener('load', function() {
+      if (typeof CozeWebSDK === 'undefined') {
+        document.getElementById('error-tip').style.display = 'block';
+        return;
+      }
+
+      try {
+        const cozeWebSDK = new CozeWebSDK.WebChatClient({
+          config: {
+            bot_id: '7632550836039630890',
+            isIframe: false
+          },
+          auth: {
+            type: 'unauth'
+          },
+          ui: {
+            title: '我的智能助手',
+            placement: 'container',
+            container: '#coze-chat'
+          }
+        });
+      } catch (e) {
+        console.error('初始化失败:', e);
+        document.getElementById('error-tip').style.display = 'block';
       }
     });
   </script>
