@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>校园时间管理智能体 · 你的AI时间管家</title>
+    <title>校园时间管理 · AI学习助手</title>
     <style>
         * {
             margin: 0;
@@ -184,11 +184,10 @@
 <script>
     (function() {
         // ================= 你的智能体配置 =================
-        // Bot ID  (从扣子平台复制)
-        const BOT_ID = "7632550836039630890";
+        // Bot ID  (新ID)
+        const BOT_ID = "7632580401533550630";
         
-        // Access Token (测试专用，无敏感数据场景)
-        // 注意: 本次为纯测试环境，直接使用个人令牌。生产环境请务必后端代理。
+        // Access Token (保持不变)
         const ACCESS_TOKEN = "pat_umclrd9LWzZnWQEQK47zZWzas5BBjRmQKQaLVrQs3XMCnu8V8zPeDTDpEv5wQwQw";
         
         // 聊天容器元素
@@ -239,7 +238,6 @@
                     width: "100%",
                     height: "100%",
                     isFixed: false,         // 内嵌式布局，不悬浮
-                    position: "right",       // 与默认无关，由于isFixed false, 此项忽略但保留兼容
                     // 界面自定义选项 (让体验更贴合学习氛围)
                     uiConfig: {
                         // 自定义问候语 (展现时间管理特性)
